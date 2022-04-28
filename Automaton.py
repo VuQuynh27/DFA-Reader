@@ -11,6 +11,9 @@ class Automaton(object):
         ReadSymbols = 0
         CurrentState = self.state_start
         for ReadSymbols in range(0, len(w)):
+            if w[ReadSymbols] not in self.alphabet:
+                print('Xâu không phải là xâu nhị phân!')
+                exit()
             CurrentState = self.tran[CurrentState][w[ReadSymbols]]
 
         if CurrentState in self.state_final:
